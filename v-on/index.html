@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+ <div id='app'>
+     <div @click ='divClick'>
+        <h2>{{counter}}</h2>
+        <button @click='increment()'>+</button>   
+        <button @click='decrement()'>-</button>  
+        <button @click.stop='buttonClick'>btn</button>  
+     </div>
+     <div>
+         <input type="text" @keyup.enter='onEnter'>
+         <button @click.once='onOnce'>once</button>  
+     </div>
+ 
+ </div>
+<script>
+const app = new Vue({
+    el:'#app',
+    data:{
+        counter :0
+    },
+    methods:{
+        increment(){
+            this.counter++;
+        },
+        decrement(){
+            this.counter--;
+        },
+        divClick(){
+            console.log('divClick')
+        },
+        buttonClick(){
+            console.log('btnClick')
+        },
+        onEnter(){
+            console.log('on Eneter')
+        },
+        onOnce(){
+            console.log('on once')
+        }
+    }
+})
+
+</script>
+
+    
+</body>
+</html>
+

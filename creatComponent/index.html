@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+ <div id='app'>
+     <!-- 3.use component-->
+     <mycp></mycp>
+     
+ </div>
+
+ <div id='app2'>
+    <mycp></mycp>
+ </div>
+
+<script>
+    //1.Create component
+    const myComponent = Vue.extend({
+        template:`
+        <div>   
+            <h2>template</h2>
+            <p>hahahah</p>
+        </div>`
+    })
+
+
+    //2.regiester component(gloabel component)
+   // Vue.component('mycp',myComponent)
+
+const app = new Vue({
+    el:'#app',
+    data:{
+       
+    },
+    components:{        //local component
+       mycp:myComponent
+    }
+})
+
+
+const app2 = new Vue({
+    el:'#app2',
+    data:{
+       
+    },
+    
+})
+
+</script>
+
+    
+</body>
+</html>
+

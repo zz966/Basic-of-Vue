@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    
+<div id='app'>
+    
+    <div>
+        <ul>
+            <li v-for='(i,index) in names'  @click='liClick(index)' :class="{active: currentIndex===index}" >{{index+1}} {{i}}</li>
+        </ul>
+        <ul>
+            <!-- v-for = (value,key) -->
+            <li v-for='(item,key) in info'  v-bind:key="item.id">{{key}}: {{item}} </li>
+        </ul>
+        <button @click='btnClick'> button</button>
+    </div>
+</div>
+
+<script>
+    const app = new Vue({
+el:'#app',
+data:{
+    names:['name1','name2','name3','name4','name5','name6'],
+    info:{
+        name:123,
+        age:321,
+        height:1234
+
+    },
+    currentIndex:0
+},
+methods:{
+    btnClick(){
+        this.names.push('111')
+        // this.names.push('111','222')
+        // this.names.pop();
+        // this.names.shift();
+        // this.names.unshift();
+
+        //splice :insert element/ add element / replace element
+        //splice(1) = splice(1,this.names.length) 不传第二个参数相当于删除 从start到数据结尾
+        //splice(start,numberToDelete )
+        //splice(1,3,'a','b','c' )  删除3个 替换。  第二个如果是0 就是不删除 添加元素
+
+        //sort()
+        //reverse()
+
+    },
+    liClick(index){
+        this.currentIndex = index;
+    }
+    
+}
+
+
+    })
+</script>
+
+</body>
+</html>
